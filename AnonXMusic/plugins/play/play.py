@@ -27,7 +27,7 @@ from AnonXMusic.utils.inline import (
 from AnonXMusic.utils.logger import play_logs
 from AnonXMusic.utils.stream.stream import stream
 from config import BANNED_USERS, lyrical, JOIN, OWNER_ID
-from string import get_command
+from strings import get_command
 
 
 @app.on_message(

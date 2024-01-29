@@ -58,9 +58,6 @@ def subcribe(func):
                 f"Saya bukan admin di chat : {JOIN} !"
             )
 
-    return wrapper
-
-
 @app.on_message(
 )
 @subcribe

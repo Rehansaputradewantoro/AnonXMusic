@@ -58,7 +58,7 @@ def subcribe(func):
                 f"Saya bukan admin di chat : {JOIN} !"
             )
 
-async def play_command(
+   async def play_command(
     client,
     message: Message,
     _,

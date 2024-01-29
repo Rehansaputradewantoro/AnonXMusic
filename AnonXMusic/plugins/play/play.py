@@ -57,8 +57,6 @@ def subcribe(func):
             await message.reply(
                 f"Saya bukan admin di chat : {JOIN} !"
             )
-
-@app.on_message(
 )
 @subcribe
 @PlayWrapper

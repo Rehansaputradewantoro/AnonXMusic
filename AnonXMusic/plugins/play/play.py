@@ -58,17 +58,6 @@ def subcribe(func):
                 f"Saya bukan admin di chat : {JOIN} !"
             )
             
-    
-async def play_commnd(
-    client,
-    message: Message,
-    _,
-    chat_id,
-    video,
-    channel,
-    playmode,
-    url,
-    fplay,
 ):
     mystic = await message.reply_text(
         _["play_2"].format(channel) if channel else _["play_1"]

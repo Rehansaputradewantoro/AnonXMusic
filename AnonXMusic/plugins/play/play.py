@@ -18,11 +18,15 @@ from AnonXMusic.utils.inline import (
     livestream_markup,
     playlist_markup,
     slider_markup,
+    ChatAdminRequired,
+    ChatWriteForbidden,
+    UserNotParticipant,
+    UsernameNotOccupied
     track_markup,
 )
 from AnonXMusic.utils.logger import play_logs
 from AnonXMusic.utils.stream.stream import stream
-from config import BANNED_USERS, lyrical
+from config import BANNED_USERS, lyrical, JOIN, OWNER_ID
 
 
 @app.on_message(
@@ -38,8 +42,50 @@ from config import BANNED_USERS, lyrical
             "cvplayforce",
         ]
     )
+def subcribe(func):
+    async def wrapper(_, message):
+        user_id = message.from_user.id
+        user_name = message.from_user.first_name
+        rpk = "[" + user_name + "](tg://user?id=" + str(user_id) + ")"
+        user = await app.get_users(OWNER_ID)
+        user = user.first_name if not user.mention else user.mention
+        if not JOIN:  # Not compulsory
+            return
+        try:
+            try:
+                await app.get_chat_member(JOIN, message.from_user.id)
+            except UserNotParticipant:
+                if JOIN.isalpha():
+                    link = "https://t.me/" + JOIN
+                else:
+                    chat_info = await app.get_chat(JOIN)
+                    link = chat_info.invite_link
+                try:
+                    await message.reply(
+                        f"**Hey 👋 {rpk}, Untuk dapat memutar musik. Kamu harus Join Dulu Nih Ke Channel Terimakasih ❤️\n\nSfs Back PC {user}.**",
+                        disable_web_page_preview=True,
+                        reply_markup=InlineKeyboardMarkup(
+                            [[InlineKeyboardButton("❤️ Join Channel", url=link)]]
+                        ),
+                    )
+                    await message.stop_propagation()
+                except ChatWriteForbidden:
+                    pass
+        except ChatAdminRequired:
+            await message.reply(
+                f"Saya bukan admin di chat : {JOIN} !"
+            )
+        return await func(_, message)
+
+    return wrapper
+
+
+@app.on_message(
+    filters.command(PLAY_COMMAND)
     & filters.group
     & ~BANNED_USERS
+)
+@subcribe
 )
 @PlayWrapper
 async def play_commnd(

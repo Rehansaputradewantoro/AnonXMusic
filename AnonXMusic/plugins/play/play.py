@@ -59,7 +59,7 @@ def subcribe(func):
             )
             
     
-    async def play_commnd(
+async def play_commnd(
     client,
     message: Message,
     _,

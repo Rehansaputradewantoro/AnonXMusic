@@ -22,6 +22,7 @@ from AnonXMusic.utils.inline import (livestream_markup,
 
 from AnonXMusic.utils.logger import play_logs
 from AnonXMusic.utils.stream.stream import stream
+import config
 from config import BANNED_USERS, lyrical, JOIN, OWNER_ID
 from strings import get_comand
 

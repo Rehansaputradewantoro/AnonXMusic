@@ -64,7 +64,6 @@ def subcribe(func):
 
 
 @app.on_message(
-    & filters.group
     & ~BANNED_USERS
 )
 @subcribe

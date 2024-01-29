@@ -20,7 +20,7 @@ from AnonXMusic.utils.inline import (livestream_markup,
     slider_markup,
     track_markup)
 
-from pyrogram,erors import
+from AnonXMusic,erors import
     ChatAdminRequired,
     ChatWriteForbidden,
     UserNotParticipant,

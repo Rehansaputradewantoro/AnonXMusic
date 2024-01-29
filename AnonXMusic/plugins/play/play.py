@@ -58,21 +58,6 @@ def subcribe(func):
                 f"Saya bukan admin di chat : {JOIN} !"
             )
 
-   @app.on_message(
-    filters.command(
-        [
-            "play",
-            "vplay",
-            "cplay",
-            "cvplay",
-            "playforce",
-            "vplayforce",
-            "cplayforce",
-            "cvplayforce",
-        ]
-    )
-    & filters.group
-    & ~BANNED_USERS
 )
 @PlayWrapper
 async def play_commnd(

@@ -27,24 +27,10 @@ from AnonXMusic.utils.inline import (
 from AnonXMusic.utils.logger import play_logs
 from AnonXMusic.utils.stream.stream import stream
 from config import BANNED_USERS, lyrical, JOIN, OWNER_ID
-
-
-@app.on_message(
-    filters.command(
-        [
-            "play",
-            "vplay",
-            "cplay",
-            "cvplay",
-            "playforce",
-            "vplayforce",
-            "cplayforce",
-            "cvplayforce",
-        ]
-    )
+from strings import get_comand
 
     # Command
-PLAY_COMMAND = filters.command("PLAY_COMMAND")
+PLAY_COMMAND = get_command("PLAY_COMMAND")
     
     def subcribe(func):
     async def wrapper(_, message):

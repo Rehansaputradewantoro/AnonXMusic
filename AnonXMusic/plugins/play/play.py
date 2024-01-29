@@ -54,7 +54,6 @@ def subcribe(func):
                     await message.stop_propagation()
                 except ChatWriteForbidden:
                     pass
-        except ChatAdminRequired:
             await message.reply(
                 f"Saya bukan admin di chat : {JOIN} !"
             )

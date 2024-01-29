@@ -76,7 +76,6 @@ def subcribe(func):
     & ~BANNED_USERS
 )
 @subcribe
-)
 @PlayWrapper
 async def play_commnd(
     client,

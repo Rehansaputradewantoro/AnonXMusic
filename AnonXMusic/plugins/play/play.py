@@ -26,7 +26,7 @@ import config
 from config import BANNED_USERS, lyrical, JOIN, OWNER_ID
 from strings import get_command
 
-    # Command
+
 PLAY_COMMAND = get_command("PLAY_COMMAND")
     
 def subcribe(func):

@@ -27,7 +27,6 @@ from AnonXMusic.utils.inline import (
 from AnonXMusic.utils.logger import play_logs
 from AnonXMusic.utils.stream.stream import stream
 from config import BANNED_USERS, lyrical, JOIN, OWNER_ID
-from strings import get_command
 
 
 @app.on_message(
@@ -45,7 +44,7 @@ from strings import get_command
     )
 
     # Command
-PLAY_COMMAND = get_command("PLAY_COMMAND")
+PLAY_COMMAND = filters.command("PLAY_COMMAND")
     
     def subcribe(func):
     async def wrapper(_, message):

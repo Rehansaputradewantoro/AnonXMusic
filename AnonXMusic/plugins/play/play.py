@@ -64,7 +64,6 @@ def subcribe(func):
 
 
 @app.on_message(
-    & ~BANNED_USERS
 )
 @subcribe
 @PlayWrapper

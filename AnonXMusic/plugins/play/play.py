@@ -24,7 +24,7 @@ from AnonXMusic.utils.logger import play_logs
 from AnonXMusic.utils.stream.stream import stream
 import config
 from config import BANNED_USERS, lyrical, JOIN, OWNER_ID
-from strings import get_comand
+from strings import get_command
 
     # Command
 PLAY_COMMAND = get_command("PLAY_COMMAND")

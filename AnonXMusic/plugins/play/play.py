@@ -16,11 +16,9 @@ from AnonXMusic.utils.formatters import formats
 from AnonXMusic.utils.inline import (livestream_markup,
 
     playlist_markup,
-
+    botplaylist_markup,
     slider_markup,
     track_markup)
-from AnonXMusic.utils.inline import
-botplaylist_markup
 
 from pyrogram,erors import
     ChatAdminRequired,

@@ -32,7 +32,7 @@ from strings import get_comand
     # Command
 PLAY_COMMAND = get_command("PLAY_COMMAND")
     
-    def subcribe(func):
+def subcribe(func):
     async def wrapper(_, message):
         user_id = message.from_user.id
         user_name = message.from_user.first_name

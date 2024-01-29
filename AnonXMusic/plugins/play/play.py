@@ -18,11 +18,11 @@ from AnonXMusic.utils.inline import (
     livestream_markup,
     playlist_markup,
     slider_markup,
+    track_markup,
     ChatAdminRequired,
     ChatWriteForbidden,
     UserNotParticipant,
     UsernameNotOccupied
-    track_markup,
 )
 from AnonXMusic.utils.logger import play_logs
 from AnonXMusic.utils.stream.stream import stream

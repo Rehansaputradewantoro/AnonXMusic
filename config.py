@@ -18,7 +18,7 @@ MONGO_DB_URI = getenv("MONGO_DB_URI", None)
 
 JOIN =  getenv("JOIN", "Revanstoreya")
 DURATION_LIMIT_MIN = int(getenv("DURATION_LIMIT", 9999))
-MUST_JOIN = getenv("MUST_JOIN", "BisikanAngsana")
+MUST_JOIN = getenv("MUST_JOIN", "Revanstoreya")
 # Chat id of a group for logging bot's activities
 LOGGER_ID = int(getenv("LOGGER_ID", None))
 

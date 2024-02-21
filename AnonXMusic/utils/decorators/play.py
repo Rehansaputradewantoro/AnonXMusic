@@ -7,7 +7,7 @@ from pyrogram.errors import (
     UserAlreadyParticipant,
     UserNotParticipant,
 )
-from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
 
 from AnonXMusic import YouTube, app
 from AnonXMusic.misc import SUDOERS
@@ -21,15 +21,41 @@ from AnonXMusic.utils.database import (
     is_maintenance,
 )
 from AnonXMusic.utils.inline import botplaylist_markup
-from config import PLAYLIST_IMG_URL, SUPPORT_CHAT, adminlist
+from config import PLAYLIST_IMG_URL, SUPPORT_CHAT, adminlist, MUST_JOIN
 from strings import get_string
 
 links = {}
 
+async def must_join_channel(bot: Client, msg: Message):
+    if not MUST_JOIN:
+        return
+    try:
+        try:
+            await bot.get_chat_member(MUST_JOIN, msg.from_user.id)
+        except UserNotParticipant:
+            if MUST_JOIN.isalpha():
+                link = "https://t.me/" + MUST_JOIN
+            else:
+                chat_info = await bot.get_chat(MUST_JOIN)
+                link = chat_info.invite_link
+            try:
+                await msg.reply(
+                    f"Anda Harus join ke [Channel Ini]({link}) untuk bisa play lagu. Setelah join silahkan Coba lagi !",
+                    disable_web_page_preview=True,
+                    reply_markup=InlineKeyboardMarkup([
+                        [InlineKeyboardButton("Join Channel", url=link)]
+                    ])
+                )
+                await msg.stop_propagation()
+            except ChatWriteForbidden:
+                pass
+    except ChatAdminRequired:
+        print(f"Saya Bukan admin di : {MUST_JOIN} !")
 
 def PlayWrapper(command):
     async def wrapper(client, message):
         language = await get_lang(message.chat.id)
+        await must_join_channel(client, message)
         _ = get_string(language)
         if message.sender_chat:
             upl = InlineKeyboardMarkup(

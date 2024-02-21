@@ -1,11 +1,12 @@
 import asyncio
-
+from pyrogram import Client
 from pyrogram.enums import ChatMemberStatus
 from pyrogram.errors import (
     ChatAdminRequired,
     InviteRequestSent,
     UserAlreadyParticipant,
     UserNotParticipant,
+    ChatWriteForbidden,
 )
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
 

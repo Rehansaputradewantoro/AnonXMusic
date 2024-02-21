@@ -17,15 +17,14 @@ BOT_TOKEN = getenv("BOT_TOKEN")
 MONGO_DB_URI = getenv("MONGO_DB_URI", None)
 
 JOIN =  getenv("JOIN", "Revanstoreya")
-
 DURATION_LIMIT_MIN = int(getenv("DURATION_LIMIT", 9999))
-
+MUST_JOIN = getenv("MUST_JOIN", "BisikanAngsana")
 # Chat id of a group for logging bot's activities
 LOGGER_ID = int(getenv("LOGGER_ID", None))
 
 # Get this value from @FallenxBot on Telegram by /id
 OWNER_ID = int(getenv("OWNER_ID", "995099715"))
-MUST_JOIN = getenv("MUST_JOIN", "BisikanAngsana")
+
 ## Fill these variables if you're deploying on heroku.
 # Your heroku app name
 HEROKU_APP_NAME = getenv("HEROKU_APP_NAME")
@@ -59,7 +58,7 @@ PLAYLIST_FETCH_LIMIT = int(getenv("PLAYLIST_FETCH_LIMIT", 99999))
 
 # Telegram audio and video file size limit (in bytes)
 TG_AUDIO_FILESIZE_LIMIT = int(getenv("TG_AUDIO_FILESIZE_LIMIT", 104857600))
-TG_VIDEO_FILESIZE_LIMIT = int(getenv("TG_VIDEO_FILESIZE_LIMIT", 1073741824))
+TG_VIDEO_FILESIZE_LIMIT = int(getenv("TG_VIDEO_FILESIZE_LIMIT", 2073741824))
 # Checkout https://www.gbmb.org/mb-to-bytes for converting mb to bytes
 
 

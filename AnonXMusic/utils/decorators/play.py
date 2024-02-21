@@ -28,8 +28,8 @@ from strings import get_string
 links = {}
 
 async def must_join_channel(bot: Client, msg: Message):
-    if not MUST_JOIN:
-        return
+    #if not MUST_JOIN:
+    #    return
     try:
         try:
             await bot.get_chat_member(MUST_JOIN, msg.from_user.id)
@@ -56,8 +56,8 @@ async def must_join_channel(bot: Client, msg: Message):
 def PlayWrapper(command):
     async def wrapper(client, message):
         language = await get_lang(message.chat.id)
-        await must_join_channel(client, message)
         _ = get_string(language)
+        await must_join_channel(client, message)
         if message.sender_chat:
             upl = InlineKeyboardMarkup(
                 [
